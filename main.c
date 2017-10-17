@@ -93,16 +93,17 @@ int main()
 	if (k==1)
 	{
 		printf ("ERROR. Minimum value is not alone. \n");
+		return 0;
 	}
 	/* 4 (create the second massive) */
 	printf ("Please, enter the massive. ");
-	char myString[10];
-	fgets( myString, 10, stdin );
+	char text[1000];
+	fgets( text, 1000, stdin );
 	int a1=0;
 	int b1=0;
-	while ( myString[i] != '\0' )
+	while ( text[i] != '\0' )
 	{
-		switch ( myString[i] )
+		switch ( text[i] )
 		{
 			case ' ':
 				b1+=1;
@@ -118,14 +119,14 @@ int main()
 		}
 		i++;
 	}
-	int mas2[a1][b1];
+	int mas1[a1][b1];
 	/* fill the massive and print it */
-	while ( myString[i] != '\0' )
+	while ( text[i] != '\0' )
 	{
-		switch ( myString[i] )
+		switch ( text[i] )
 		{
 			case ' ':
-				printf("[%d][%d]=%d ", a1, b1, mas2[a1][b1] );
+				printf("[%d][%d]=%d ", a1, b1, mas1[a1][b1] );
 				b1+=1;
 			break;
 			case ',':
@@ -134,10 +135,10 @@ int main()
 				b1=0;
 			break;
 			case '.':
-				printf("[%d][%d]=%d ", a1, b1, mas2[a1][b1] );
+				printf("[%d][%d]=%d ", a1, b1, mas1[a1][b1] );
 			break;
 			default:
-				mas2[a1][b1]+=myString[i];
+				mas1[a1][b1]+=text[i];
 		}
 		i++;
 	}
@@ -156,7 +157,7 @@ int main()
 				matrix[i][j]=0;
 				for (n=0; n<b2; n++)
 				{
-					matrix[i][j]+=(mas[i][n])*(mas2[n][j]);
+					matrix[i][j]+=(mas[i][n])*(mas1[n][j]);
 				}
 				printf ("[%d][%d]=%d ", i,j,matrix[i][j]);
 			}
