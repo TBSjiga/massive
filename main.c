@@ -94,7 +94,7 @@ int main()
 	{
 		printf ("ERROR. Minimum value is not alone. \n");
 	}
-	/*create the second massive */
+	/* 4 (create the second massive) */
 	printf ("Please, enter the massive. ");
 	char myString[10];
 	fgets( myString, 10, stdin );
@@ -145,7 +145,7 @@ int main()
 	int a2,b2;
 	a2=a-1;
 	b2=b-1;
-	/*multyply massives */
+	/* 5 (multyply massives) */
 	if (b2==a1)
 	{
 		int matrix[a2][b1],n;
