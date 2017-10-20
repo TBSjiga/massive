@@ -4,7 +4,7 @@
 
 int main()
 {
-	int i, j, i1, j1, x, k, a, b;
+	int i, j, i1, j1, x, k, a, b, a1, b1, a2, b2;
 	int min = 2147483647;
 
 	/* 1 (create massive) */
@@ -96,73 +96,43 @@ int main()
 		return 0;
 	}
 	/* 4 (create the second massive) */
-	printf ("Please, enter the massive. ");
-	char text[1000];
-	fgets( text, 1000, stdin );
-	int a1=0;
-	int b1=0;
-	while ( text[i] != '\0' )
+	printf ("Please, enter number of columns of the second massive. \n ");
+	scanf ("%d" , &b1 );
+	printf ("Please, enter the second massive. \n ");
+	int mas1[b-1][b1];
+	for (i=0 ; i<b-1 ; i++)
 	{
-		switch ( text[i] )
+		for (j=0 ; j<b1 ; j++)
 		{
-			case ' ':
-				b1+=1;
-			break;
-			case ',':
-				a1+=1;
-				b1=0;
-			break;
-			case '.':
-			break;
-			default:
-			break;
+			scanf ("%d" , &mas1[i][j]);
 		}
-		i++;
-	}
-	int mas1[a1][b1];
-	/* fill the massive and print it */
-	while ( text[i] != '\0' )
+		printf ("\n");
+	}	
+	for (i=0 ; i<b-1 ; i++)
 	{
-		switch ( text[i] )
+		for (j=0 ; j<b1 ; j++)
 		{
-			case ' ':
-				printf("[%d][%d]=%d ", a1, b1, mas1[a1][b1] );
-				b1+=1;
-			break;
-			case ',':
-				printf ( "\n" );
-				a1+=1;
-				b1=0;
-			break;
-			case '.':
-				printf("[%d][%d]=%d ", a1, b1, mas1[a1][b1] );
-			break;
-			default:
-				mas1[a1][b1]+=text[i];
+			printf ("[%d][%d]=%d ", i, j, mas1[i][j] );
 		}
-		i++;
+		printf ("\n");
 	}
 	printf("\n");
-	int a2,b2;
 	a2=a-1;
 	b2=b-1;
 	/* 5 (multyply massives) */
-	if (b2==a1)
+	int matrix[a2][b1], n;
+	for (i=0; i<a2; i++)
 	{
-		int matrix[a2][b1],n;
-		for (i=0; i<a2; i++)
+		for (j=0; j<b1; j++)
 		{
-			for (j=0; j<b1; j++)
+			matrix[i][j]=0;
+			for (n=0; n<b2; n++)
 			{
-				matrix[i][j]=0;
-				for (n=0; n<b2; n++)
-				{
-					matrix[i][j]+=(mas[i][n])*(mas1[n][j]);
-				}
-				printf ("[%d][%d]=%d ", i,j,matrix[i][j]);
+				matrix[i][j]+=(mas[i][n])*(mas1[n][j]);
 			}
-			printf("\n");
+			printf ("[%d][%d]=%d ", i, j, matrix[i][j]);
 		}
+		printf("\n");
 	}
 	return 0;
 }
