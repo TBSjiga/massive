@@ -4,7 +4,7 @@
 
 int main()
 {
-	int i, j, i1, j1, x, k, a, b, a1, b1, a2, b2;
+	int i, j, i1, j1, x, k, a, b, b1, a2, b2;
 	int min = 2147483647;
 
 	/* 1 (create massive) */
